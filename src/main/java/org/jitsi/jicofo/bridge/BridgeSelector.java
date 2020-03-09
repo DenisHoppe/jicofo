@@ -31,6 +31,7 @@ import org.jitsi.utils.*;
 import org.jitsi.utils.logging.*;
 import org.jivesoftware.smack.packet.*;
 
+import org.json.simple.*;
 import org.jxmpp.jid.*;
 import org.jxmpp.jid.impl.*;
 import org.jxmpp.stringprep.*;
@@ -697,4 +698,12 @@ public class BridgeSelector
         }
     }
 
+    public JSONObject getStats()
+    {
+        JSONObject json = new JSONObject();
+
+        json.put("strategy", bridgeSelectionStrategy.getStats());
+
+        return json;
+    }
 }
